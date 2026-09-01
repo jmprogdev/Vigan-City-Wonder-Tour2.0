@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Vigan City tourist spots on an interactive map with search, location, destination details, and directions.">
+  <meta name="theme-color" content="#24150f">
+  <title>Interactive Map | Vigan City Wonder Tour</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Manrope', 'sans-serif'], display: ['DM Serif Display', 'serif'] },
+          colors: {
+            heritage: {50:'#fbf7f2',100:'#f5eadf',200:'#e8d0ba',300:'#d7ad89',400:'#c4865f',500:'#b76843',600:'#9d4f34',700:'#7f3e2c',800:'#683529',900:'#562e25',950:'#2f1711'},
+            gold:'#d7a967', ink:'#1d1714', cream:'#fffaf4'
+          },
+          boxShadow: { soft:'0 20px 60px rgba(45,26,16,.12)', card:'0 18px 45px rgba(45,26,16,.10)' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="style.css?v=20260901-reviews-v8-shared">
+</head>
+<body class="bg-cream text-ink antialiased overflow-x-hidden" data-page="map">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header fixed inset-x-0 top-0 z-[1000]">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="nav-shell stable-nav mt-3 h-16 rounded-2xl px-4 sm:px-5">
+        <a href="index.html" class="nav-brand group flex min-w-0 items-center gap-3" aria-label="Vigan City Wonder Tour home">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-heritage-700 text-white shadow-lg shadow-heritage-900/15">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M4 20h16M6 20V9l6-4 6 4v11M9 20v-5h6v5M8 10h.01M16 10h.01"/>
+              <path d="M3 9l9-6 9 6"/>
+            </svg>
+          </span>
+          <span class="min-w-0">
+            <span class="block truncate font-display text-[1.05rem] leading-none tracking-wide text-white">Vigan City</span>
+            <span class="mt-1 block truncate text-[0.63rem] font-bold uppercase tracking-[0.22em] text-white/65">Wonder Tour</span>
+          </span>
+        </a>
+
+        <nav class="nav-center hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link" href="tourist-spots.html">Tourist Spots</a>
+          <a class="nav-link active" href="tourist-map.html">Interactive Map</a>
+          <a class="nav-link" href="reviews.html">Reviews</a>
+        </nav>
+
+        <div class="nav-action hidden lg:flex">
+          <a href="tourist-spots.html" class="nav-cta">
+            <span>View Spots</span>
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <button class="mobile-menu-btn nav-mobile-action grid h-10 w-10 place-items-center rounded-xl border border-white/15 text-white lg:hidden"
+                type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="menu-open h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="menu-close hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu mt-2 hidden rounded-2xl p-2 lg:hidden">
+        <a class="mobile-nav-link" href="index.html">Home</a>
+        <a class="mobile-nav-link" href="tourist-spots.html">Tourist Spots</a>
+        <a class="mobile-nav-link active" href="tourist-map.html">Interactive Map</a>
+        <a class="mobile-nav-link" href="reviews.html">Reviews</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="map-page">
+    <section class="map-workspace">
+      <div class="map-workspace-toolbar">
+      
+
+        <div class="map-toolbar-actions" aria-label="Map controls">
+          <button id="locate-me" type="button" class="map-tool-btn">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/>
+              <circle cx="12" cy="12" r="8"/>
+              <path d="M12 2v2M12 20v2M2 12h2M20 12h2"/>
+            </svg>
+            <span>My location</span>
+          </button>
+
+          <button id="reset-map" type="button" class="map-tool-btn">
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 4v6h6M20 20v-6h-6"/>
+              <path d="M5.5 15a7 7 0 0011.8 2.4L20 14M4 10l2.7-3.4A7 7 0 0118.5 9"/>
+            </svg>
+            <span>Reset view</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="map-app map-app-viewport">
+        <aside class="map-sidebar" aria-label="Tourist destinations">
+          <div class="map-sidebar-head">
+            <label class="map-search-box">
+              <span class="sr-only">Search map destinations</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/>
+                <path d="M20 20l-3.5-3.5"/>
+              </svg>
+              <input id="map-search" type="search" placeholder="Search places..." autocomplete="off">
+            </label>
+
+            <div class="map-list-heading">
+              <div>
+                <span class="map-list-eyebrow">Destinations</span>
+                <strong>Vigan highlights</strong>
+              </div>
+              <span id="map-result-count" class="map-result-count">9 places</span>
+            </div>
+          </div>
+
+          <div id="map-spot-list" class="map-spot-list" role="list"></div>
+        </aside>
+
+        <div class="map-canvas-wrap">
+          <div id="map" aria-label="Interactive map of Vigan City tourist spots"></div>
+
+          <div class="map-canvas-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3zM9 3v15M15 6v15"/>
+            </svg>
+            Explore Vigan
+          </div>
+
+          <div id="map-loading" class="absolute inset-0 z-[500] grid place-items-center bg-stone-50">
+            <div class="text-center">
+              <span class="mx-auto block h-8 w-8 animate-spin rounded-full border-2 border-heritage-200 border-t-heritage-700"></span>
+              <p class="mt-3 text-xs font-extrabold uppercase tracking-[0.14em] text-stone-400">Loading map</p>
+            </div>
+          </div>
+
+          <div id="map-error" class="absolute inset-0 z-[600] hidden place-items-center bg-stone-50 p-6">
+            <div class="max-w-md text-center">
+              <span class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-heritage-50 text-heritage-700">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                  <path d="M12 9v4M12 17h.01"/>
+                  <path d="M10.3 4.3L2.6 18a2 2 0 001.7 3h15.4a2 2 0 001.7-3L13.7 4.3a2 2 0 00-3.4 0z"/>
+                </svg>
+              </span>
+              <h2 class="mt-4 font-display text-2xl text-heritage-950">Map could not load</h2>
+              <p class="mt-2 text-sm leading-6 text-stone-500">Check your internet connection. Leaflet and OpenStreetMap tiles are loaded online.</p>
+            </div>
+          </div>
+
+          <p id="map-status" class="map-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <aside id="map-details" class="map-details" aria-label="Selected destination details">
+          <div id="map-details-empty" class="map-details-empty">
+            <span class="map-details-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M12 21s7-4.8 7-11a7 7 0 10-14 0c0 6.2 7 11 7 11z"/>
+                <circle cx="12" cy="10" r="2.3"/>
+              </svg>
+            </span>
+            <span class="map-details-eyebrow">Choose a destination</span>
+            <h2>Your Vigan route starts here.</h2>
+            <p>Select a place from the list or click a marker to see its photo, description, coordinates, and directions.</p>
+            <div class="map-details-tip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                <path d="M12 17v.01M9.2 9a3 3 0 115.6 1.5c-.8 1-1.8 1.3-2.3 2.5"/>
+                <circle cx="12" cy="12" r="9"/>
+              </svg>
+              Tip: click any numbered marker
+            </div>
+          </div>
+
+          <div id="map-details-content" class="hidden"></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="map-site-footer border-t border-stone-200/80 bg-white">
+    <div class="site-footer-inner mx-auto flex max-w-7xl flex-col gap-2 px-4 py-4 text-xs font-semibold text-stone-400 sm:px-6 lg:px-8">
+      <p>© <span data-current-year>2026</span> Vigan City Wonder Tour. All rights reserved.</p>
+      <p class="map-footer-meta">
+        <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">Map data © OpenStreetMap contributors</a>
+      </p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="config.js?v=20260901-reviews-v8-shared"></script>
+  <script src="script.js?v=20260901-reviews-v8-shared"></script>
+</body>
+</html>

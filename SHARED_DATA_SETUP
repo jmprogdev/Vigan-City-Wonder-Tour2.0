@@ -1,0 +1,29 @@
+VIGAN CITY WONDER TOUR — SHARED REVIEWS / VISITORS SETUP
+
+WHY THIS IS INCLUDED
+GitHub Pages can serve HTML/CSS/JS but cannot write a database file when visitors submit reviews.
+The included Cloudflare Worker + D1 database gives the GitHub Pages website a real shared writable database.
+Once deployed, reviews, ratings and unique visitor totals are visible across phones, tablets and computers.
+The browser also keeps a last-known cache so data can still display during a temporary connection problem.
+
+ONE-TIME SETUP
+1. Create a free Cloudflare account if you do not already have one.
+2. Install Node.js, then open a terminal inside the backend folder.
+3. Run: npx wrangler login
+4. Run: npx wrangler d1 create vigan-wonder-tour
+5. Copy the database_id Cloudflare prints.
+6. Copy wrangler.toml.example to wrangler.toml and paste that database_id.
+7. Run: npx wrangler d1 execute vigan-wonder-tour --remote --file=schema.sql
+8. Run: npx wrangler deploy
+9. Copy the deployed workers.dev URL.
+10. Open config.js and replace PASTE_YOUR_CLOUDFLARE_WORKER_URL_HERE with that URL.
+11. Upload the website files to GitHub Pages as normal.
+
+OPTIONAL SECURITY STEP
+After your GitHub Pages address is working, change ALLOWED_ORIGIN in backend/wrangler.toml from * to your exact GitHub Pages origin (for example https://username.github.io), then run npx wrangler deploy again.
+
+DATA BEHAVIOR
+- Visitor total counts unique browser installations (the browser gets a persistent random visitor ID).
+- Returning to the site from the same browser does not create a second unique visitor.
+- Reviews and ratings are stored in D1 and are shared across all connected devices.
+- LocalStorage is only a cache/fallback; the D1 database is the shared source of truth.

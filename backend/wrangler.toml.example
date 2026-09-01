@@ -1,0 +1,13 @@
+name = "vigan-wonder-tour-api"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+# Replace with your GitHub Pages origin after testing.
+# Example: https://username.github.io
+[vars]
+ALLOWED_ORIGIN = "*"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vigan-wonder-tour"
+database_id = "PASTE_D1_DATABASE_ID_HERE"

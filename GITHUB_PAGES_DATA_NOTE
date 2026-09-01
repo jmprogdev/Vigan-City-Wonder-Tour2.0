@@ -1,0 +1,5 @@
+GitHub Pages is static and cannot directly write visitor/review data back into repository files.
+
+This v8 package includes backend/worker.js + Cloudflare D1 so the GitHub Pages frontend can use a real shared writable database. Follow SHARED_DATA_SETUP.txt once, then paste the Worker URL into config.js.
+
+After that, visitor totals, ratings, and feedback are shared across devices. Browser localStorage remains only as an offline/last-known cache.

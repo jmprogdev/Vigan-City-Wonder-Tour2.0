@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse Vigan City tourist spots, cultural landmarks, museums, plazas, local experiences, and unique destinations.">
+  <meta name="theme-color" content="#24150f">
+  <title>Tourist Spots | Vigan City Wonder Tour</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Manrope', 'sans-serif'], display: ['DM Serif Display', 'serif'] },
+          colors: {
+            heritage: {50:'#fbf7f2',100:'#f5eadf',200:'#e8d0ba',300:'#d7ad89',400:'#c4865f',500:'#b76843',600:'#9d4f34',700:'#7f3e2c',800:'#683529',900:'#562e25',950:'#2f1711'},
+            gold:'#d7a967', ink:'#1d1714', cream:'#fffaf4'
+          },
+          boxShadow: { soft:'0 20px 60px rgba(45,26,16,.12)', card:'0 18px 45px rgba(45,26,16,.10)' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="style.css?v=20260901-reviews-v8-shared">
+</head>
+<body class="bg-cream text-ink antialiased overflow-x-hidden" data-page="spots">
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="site-header fixed inset-x-0 top-0 z-50">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="nav-shell stable-nav mt-3 h-16 rounded-2xl px-4 sm:px-5">
+        <a href="index.html" class="nav-brand group flex min-w-0 items-center gap-3" aria-label="Vigan City Wonder Tour home">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-heritage-700 text-white shadow-lg shadow-heritage-900/15">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M4 20h16M6 20V9l6-4 6 4v11M9 20v-5h6v5M8 10h.01M16 10h.01"/>
+              <path d="M3 9l9-6 9 6"/>
+            </svg>
+          </span>
+          <span class="min-w-0">
+            <span class="block truncate font-display text-[1.05rem] leading-none tracking-wide text-white">Vigan City</span>
+            <span class="mt-1 block truncate text-[0.63rem] font-bold uppercase tracking-[0.22em] text-white/65">Wonder Tour</span>
+          </span>
+        </a>
+
+        <nav class="nav-center hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+          <a class="nav-link" href="index.html">Home</a>
+          <a class="nav-link active" href="tourist-spots.html">Tourist Spots</a>
+          <a class="nav-link" href="tourist-map.html">Interactive Map</a>
+          <a class="nav-link" href="reviews.html">Reviews</a>
+        </nav>
+
+        <div class="nav-action hidden lg:flex">
+          <a href="tourist-map.html" class="nav-cta">
+            <span>Open Map</span>
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <button class="mobile-menu-btn nav-mobile-action grid h-10 w-10 place-items-center rounded-xl border border-white/15 text-white lg:hidden"
+                type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="menu-open h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="menu-close hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu mt-2 hidden rounded-2xl p-2 lg:hidden">
+        <a class="mobile-nav-link" href="index.html">Home</a>
+        <a class="mobile-nav-link active" href="tourist-spots.html">Tourist Spots</a>
+        <a class="mobile-nav-link" href="tourist-map.html">Interactive Map</a>
+        <a class="mobile-nav-link" href="reviews.html">Reviews</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero relative overflow-hidden pb-8 pt-28 sm:pb-10 sm:pt-28">
+      <img src="images/header-tourist.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" data-fallback="Vigan heritage">
+      <div class="absolute inset-0 bg-[linear-gradient(100deg,rgba(34,18,12,.94),rgba(55,29,18,.76)_55%,rgba(31,17,12,.52))]"></div>
+      <div class="hero-texture absolute inset-0 opacity-30" aria-hidden="true"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <div class="reveal inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-2 text-xs font-extrabold uppercase tracking-[0.18em] text-white/80 backdrop-blur-md">
+            <svg viewBox="0 0 24 24" class="h-3.5 w-3.5 text-gold" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-4.8 7-11a7 7 0 10-14 0c0 6.2 7 11 7 11z"/><circle cx="12" cy="10" r="2"/></svg>
+            Curated Vigan destinations
+          </div>
+          <h1 class="reveal mt-4 font-display text-[clamp(2.25rem,5vw,4.25rem)] leading-[.96] tracking-[-0.03em] text-white">Tourist spots worth slowing down for.</h1>
+          <p class="reveal mt-3 max-w-2xl text-sm leading-7 text-white/70 sm:text-base">
+            Explore historic streets, cultural landmarks, local traditions, relaxing destinations, and places to taste Vigan's character.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sticky top-[84px] z-30 border-b border-stone-200/80 bg-cream/90 py-3 backdrop-blur-xl">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <label class="relative block min-w-0 flex-1 lg:max-w-md">
+            <span class="sr-only">Search tourist spots</span>
+            <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-stone-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            <input id="spot-search" type="search" placeholder="Search a destination..." autocomplete="off"
+                   class="h-12 w-full rounded-2xl border border-stone-200 bg-white pl-11 pr-4 text-sm font-semibold text-stone-800 outline-none transition placeholder:text-stone-400 focus:border-heritage-400 focus:ring-4 focus:ring-heritage-100">
+          </label>
+
+          <div class="no-scrollbar flex max-w-full gap-2 overflow-x-auto pb-1 lg:pb-0" role="group" aria-label="Filter tourist spots">
+            <button class="filter-chip active" type="button" data-filter="all">All</button>
+            <button class="filter-chip" type="button" data-filter="historic">Historic</button>
+            <button class="filter-chip" type="button" data-filter="culture">Culture</button>
+            <button class="filter-chip" type="button" data-filter="unique">Unique</button>
+            <button class="filter-chip" type="button" data-filter="saved">
+              <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              Saved <span id="saved-count">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-7 sm:py-8">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <h2 class="font-display text-2xl leading-tight tracking-[-0.02em] text-heritage-950 sm:text-3xl">
+            Nine places, one memorable city.
+          </h2>
+          <p id="results-summary" class="shrink-0 text-xs font-bold text-stone-500 sm:text-sm">Showing 9 destinations</p>
+        </div>
+
+        <div id="spots-grid" class="mt-5 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <article id="calle-crisologo" class="spot-card-premium reveal" data-spot-card data-id="calle-crisologo" data-category="historic" data-search="calle crisologo ancestral houses kalesa spanish colonial bahay na bato">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/callecrisologo2.jpg" alt="Calle Crisologo heritage street" class="active" data-fallback="Calle Crisologo">
+              <img src="images/callecrisologo.jpg" alt="Calle Crisologo ancestral houses" data-fallback="Calle Crisologo">
+              <span class="spot-category">Historic</span>
+              <button class="favorite-btn" type="button" data-favorite="calle-crisologo" aria-label="Save Calle Crisologo">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Calle Crisologo photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Calle Crisologo photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <p class="spot-kicker">Iconic heritage street</p>
+                  <h3>Calle Crisologo</h3>
+                </div>
+                <span class="spot-number">01</span>
+              </div>
+              <p>This is Vigan's most iconic street, lined with ancestral houses from the Spanish colonial era. Take a walk or a kalesa ride, especially when the street lamps create a warm vintage glow.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>The houses are famous for bahay na bato architecture, combining stone ground floors and wooden upper floors with capiz-shell windows.</p>
+              </details>
+              <a href="tourist-map.html?spot=calle-crisologo" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="plaza-salcedo" class="spot-card-premium reveal" data-spot-card data-id="plaza-salcedo" data-category="historic" data-search="plaza salcedo dancing fountain cathedral provincial capitol gabriela silang">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/plaza_salcedo.jpg" alt="Plaza Salcedo" class="active" data-fallback="Plaza Salcedo">
+              <img src="images/plaza_salcedo2.jpg" alt="Plaza Salcedo dancing fountain" data-fallback="Plaza Salcedo">
+              <span class="spot-category">Historic</span>
+              <button class="favorite-btn" type="button" data-favorite="plaza-salcedo" aria-label="Save Plaza Salcedo">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Plaza Salcedo photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Plaza Salcedo photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Central public square</p><h3>Plaza Salcedo</h3></div>
+                <span class="spot-number">02</span>
+              </div>
+              <p>The city's main public square is surrounded by important government and religious buildings. Its well-known evening attraction is the Dancing Fountain Show.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Plaza Salcedo is named for Juan de Salcedo and is associated with the 1763 execution of revolutionary heroine Gabriela Silang. Its large pool later became the setting for the dancing fountain.</p>
+              </details>
+              <a href="tourist-map.html?spot=plaza-salcedo" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="plaza-burgos" class="spot-card-premium reveal" data-spot-card data-id="plaza-burgos" data-category="historic" data-search="plaza burgos empanada okoy food father jose burgos gomburza">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/plaza_burgos.jpg" alt="Plaza Burgos" class="active" data-fallback="Plaza Burgos">
+              <img src="images/plaza_burgos2.jpg" alt="Plaza Burgos public space" data-fallback="Plaza Burgos">
+              <span class="spot-category">Historic</span>
+              <button class="favorite-btn" type="button" data-favorite="plaza-burgos" aria-label="Save Plaza Burgos">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Plaza Burgos photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Plaza Burgos photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Food & public life</p><h3>Plaza Burgos</h3></div>
+                <span class="spot-number">03</span>
+              </div>
+              <p>Beside Vigan Cathedral and Plaza Salcedo, this square is a favorite place to relax and try local favorites such as Vigan empanada and okoy.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>The plaza is named in honor of native priest and martyr Father Jose Burgos, one of the three GomBurZa priests.</p>
+              </details>
+              <a href="tourist-map.html?spot=plaza-burgos" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="vigan-cathedral" class="spot-card-premium reveal" data-spot-card data-id="vigan-cathedral" data-category="culture" data-search="vigan cathedral st paul metropolitan cathedral church earthquake baroque bell tower religious">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/vigan_cathedral.jpg" alt="Vigan Cathedral" class="active" data-fallback="Vigan Cathedral">
+              <img src="images/vigan_cathedral2.jpg" alt="Vigan Cathedral exterior" data-fallback="Vigan Cathedral">
+              <span class="spot-category">Culture</span>
+              <button class="favorite-btn" type="button" data-favorite="vigan-cathedral" aria-label="Save Vigan Cathedral">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Vigan Cathedral photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Vigan Cathedral photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Religious landmark</p><h3>Vigan Cathedral</h3></div>
+                <span class="spot-number">04</span>
+              </div>
+              <p>A majestic Roman Catholic church dominating the central plaza. Its massive structure follows the Earthquake Baroque style commonly associated with seismic adaptation.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>The current stone church was built in the 18th century. Its octagonal bell tower stands apart from the main church building.</p>
+              </details>
+              <a href="tourist-map.html?spot=vigan-cathedral" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="pagburnayan" class="spot-card-premium reveal" data-spot-card data-id="pagburnayan" data-category="culture" data-search="pagburnayan burnay jar pottery clay artisans traditional workshop basi bagoong">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/pagburnayan.jpg" alt="Pagburnayan pottery workshop" class="active" data-fallback="Pagburnayan">
+              <img src="images/pagburnayan2.jpg" alt="Traditional burnay jar making" data-fallback="Pagburnayan">
+              <span class="spot-category">Culture</span>
+              <button class="favorite-btn" type="button" data-favorite="pagburnayan" aria-label="Save Pagburnayan">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Pagburnayan photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Pagburnayan photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Living craft tradition</p><h3>Pagburnayan</h3></div>
+                <span class="spot-number">05</span>
+              </div>
+              <p>A traditional pottery workshop where visitors can see the long-established method of making burnay earthen jars and try shaping clay on the potter's wheel.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>The craft dates back to the pre-colonial era and was influenced by Chinese traders. Burnay jars are traditionally used for products such as basi and bagoong.</p>
+              </details>
+              <a href="tourist-map.html?spot=pagburnayan" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="ilocos-regional-museum" class="spot-card-premium reveal" data-spot-card data-id="ilocos-regional-museum" data-category="culture" data-search="ilocos regional museum national museum father jose burgos basi revolt paintings ethnographic carcel elpidio quirino">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/nationalmuseum.jpg" alt="Ilocos Regional Museum" class="active" data-fallback="Ilocos Regional Museum">
+              <img src="images/national_museum.jpg" alt="Museum complex in Vigan" data-fallback="Ilocos Regional Museum">
+              <span class="spot-category">Culture</span>
+              <button class="favorite-btn" type="button" data-favorite="ilocos-regional-museum" aria-label="Save Ilocos Regional Museum">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous museum photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next museum photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">History & collections</p><h3>Ilocos Regional Museum</h3></div>
+                <span class="spot-number">06</span>
+              </div>
+              <p>The museum complex presents historical artifacts, Basi Revolt paintings, and ethnographic materials connected with the Ilocos region.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>The site includes heritage structures that offer insight into Vigan's past, including stories associated with Father Jose Burgos and former President Elpidio Quirino.</p>
+              </details>
+              <a href="tourist-map.html?spot=ilocos-regional-museum" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="baluarte-zoo" class="spot-card-premium reveal" data-spot-card data-id="baluarte-zoo" data-category="unique" data-search="baluarte zoo animals ostriches tigers exotic birds safari gallery animal show">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/baluarte2.jpg" alt="Baluarte Zoo" class="active" data-fallback="Baluarte Zoo">
+              <img src="images/baluarte.jpg" alt="Baluarte Zoo attraction" data-fallback="Baluarte Zoo">
+              <span class="spot-category">Unique</span>
+              <button class="favorite-btn" type="button" data-favorite="baluarte-zoo" aria-label="Save Baluarte Zoo">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Baluarte Zoo photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Baluarte Zoo photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Wildlife destination</p><h3>Baluarte Zoo</h3></div>
+                <span class="spot-number">07</span>
+              </div>
+              <p>A mini-zoo and wildlife attraction known for a variety of animals, including ostriches, tigers, and exotic birds, with visitor-oriented animal experiences.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>The attraction is associated with former Ilocos Sur Governor Luis “Chavit” Singson and is often described as a safari-style destination.</p>
+              </details>
+              <a href="tourist-map.html?spot=baluarte-zoo" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="hidden-garden" class="spot-card-premium reveal" data-spot-card data-id="hidden-garden" data-category="unique" data-search="hidden garden plants nursery restaurant ilocano cuisine relaxing garden cafe">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/hiddengarden.jpg" alt="Hidden Garden" class="active" data-fallback="Hidden Garden">
+              <img src="images/hiddengarden2.jpg" alt="Plants at Hidden Garden" data-fallback="Hidden Garden">
+              <span class="spot-category">Unique</span>
+              <button class="favorite-btn" type="button" data-favorite="hidden-garden" aria-label="Save Hidden Garden">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous Hidden Garden photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next Hidden Garden photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Garden & dining</p><h3>Hidden Garden</h3></div>
+                <span class="spot-number">08</span>
+              </div>
+              <p>A relaxing destination that functions as a plant nursery and restaurant serving Ilocano food—ideal for a quieter break from the city center.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Known for its calm provincial ambiance, the garden offers visitors a slower, greener side of the Vigan experience.</p>
+              </details>
+              <a href="tourist-map.html?spot=hidden-garden" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+
+          <article id="one-ilocos-sur-cafe" class="spot-card-premium reveal" data-spot-card data-id="one-ilocos-sur-cafe" data-category="unique" data-search="one ilocos sur cafe coffee pastries local cuisine contemporary ancestral house">
+            <div class="spot-media" data-carousel data-index="0">
+              <img src="images/oneilocossurcafe.jpg" alt="One Ilocos Sur Cafe" class="active" data-fallback="One Ilocos Sur Cafe">
+              <img src="images/one_ilocos_sur_cafe.jpg" alt="One Ilocos Sur Cafe interior or exterior" data-fallback="One Ilocos Sur Cafe">
+              <span class="spot-category">Unique</span>
+              <button class="favorite-btn" type="button" data-favorite="one-ilocos-sur-cafe" aria-label="Save One Ilocos Sur Cafe">
+                <svg class="heart-outline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+                <svg class="heart-fill hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7-4.35-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.65-7 10-7 10z"/></svg>
+              </button>
+              <button class="carousel-nav prev" type="button" data-carousel-prev aria-label="Previous cafe photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg></button>
+              <button class="carousel-nav next" type="button" data-carousel-next aria-label="Next cafe photo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></button>
+              <div class="carousel-dots" aria-hidden="true"><span class="active"></span><span></span></div>
+            </div>
+            <div class="spot-copy">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0"><p class="spot-kicker">Modern local culture</p><h3>One Ilocos Sur Cafe</h3></div>
+                <span class="spot-number">09</span>
+              </div>
+              <p>A contemporary stop for local food, coffee, and pastries—an easy way to experience present-day Vigan alongside its heritage setting.</p>
+              <details class="history-details">
+                <summary>History & trivia <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></summary>
+                <p>Adaptive reuse of heritage-inspired spaces for cafés and restaurants allows visitors to experience traditional architecture in a modern setting.</p>
+              </details>
+              <a href="tourist-map.html?spot=one-ilocos-sur-cafe" class="card-link">View on map <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            </div>
+          </article>
+        </div>
+
+        <div id="empty-state" class="mt-8 hidden rounded-[2rem] border border-dashed border-stone-300 bg-white p-10 text-center shadow-sm">
+          <span class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-heritage-50 text-heritage-700">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M8 11h6"/></svg>
+          </span>
+          <h3 class="mt-4 font-display text-2xl text-heritage-950">No destinations found</h3>
+          <p class="mx-auto mt-2 max-w-md text-sm leading-6 text-stone-500">Try another search term or switch back to the “All” filter.</p>
+          <button id="clear-filters" class="mt-5 rounded-xl bg-heritage-700 px-4 py-2.5 text-sm font-extrabold text-white" type="button">Clear filters</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="px-4 pb-20 sm:px-6 sm:pb-24 lg:px-8">
+      <div class="reveal relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-heritage-950 px-5 py-12 text-white sm:px-10 lg:px-14">
+        <div class="hero-texture absolute inset-0 opacity-20" aria-hidden="true"></div>
+        <div class="relative grid gap-7 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p class="text-xs font-extrabold uppercase tracking-[0.2em] text-gold">Ready to navigate?</p>
+            <h2 class="mt-3 max-w-3xl font-display text-3xl leading-tight sm:text-4xl">Turn your shortlist into a map.</h2>
+            <p class="mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">Open the interactive map to search, select a marker, locate yourself, and launch directions.</p>
+          </div>
+          <a href="tourist-map.html" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3 text-sm font-extrabold text-heritage-900 transition hover:-translate-y-0.5">
+            View interactive map
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3zM9 3v15M15 6v15"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-stone-200/80 bg-white">
+    <div class="border-t border-stone-100">
+      <div class="site-footer-inner mx-auto flex max-w-7xl flex-col gap-2 px-4 py-5 text-xs font-semibold text-stone-400 sm:px-6 lg:px-8">
+        <p>© <span data-current-year>2026</span> Vigan City Wonder Tour. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+  </button>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="config.js?v=20260901-reviews-v8-shared"></script>
+  <script src="script.js?v=20260901-reviews-v8-shared"></script>
+</body>
+</html>

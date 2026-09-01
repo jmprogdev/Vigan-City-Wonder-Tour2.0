@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS visitors (
+  visitor_id TEXT PRIMARY KEY,
+  first_seen TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  last_seen TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS reviews (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  visitor_id TEXT,
+  name TEXT NOT NULL DEFAULT 'Anonymous visitor',
+  rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  feedback TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_reviews_created_at ON reviews(created_at DESC);
