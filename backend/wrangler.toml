@@ -10,4 +10,4 @@ ALLOWED_ORIGIN = "*"
 [[d1_databases]]
 binding = "DB"
 database_name = "vigan-wonder-tour"
-database_id = "PASTE_D1_DATABASE_ID_HERE"
+database_id = "2133193b-d76b-4d02-977a-d4b6f0a0052a"
