@@ -70,6 +70,18 @@
       background: rgba(127, 62, 44, 0.68);
     }
 
+    /* Match both cards when they appear side by side. */
+    @media (min-width: 1024px) {
+      .review-layout {
+        align-items: stretch;
+      }
+
+      .review-form-card,
+      .review-feed-card {
+        height: 640px;
+      }
+    }
+
     @media (max-width: 767px) {
       .review-feed-card {
         max-height: 520px;
